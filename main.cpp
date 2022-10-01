@@ -19,5 +19,4 @@ int main() {
     displayStudentTable(student);
     return 0;
 
-    return 0;
 }
