@@ -44,7 +44,7 @@ int main() { /// opening brace - program execution starts here.
     extractDataAndWriteToFile(fileContent); /// function to calculate average, grades and writing to an output file.
 
     /**
-     * Module Name: CalcuCalculating Average subject score and grades for every subject of every student.
+     * Module Name: Calculating Average subject score and grades for every subject of every student.
      * */
     StudentDataCollection student{}; /// declaration of struct named StudentDataCollection
     readFirstLineFromFile(student); /// function to read first line from input file
