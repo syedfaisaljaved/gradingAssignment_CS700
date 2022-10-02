@@ -1,15 +1,15 @@
 /*****************************
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: CS-700 Assignment 1
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: CS-700 Assignment 1
  * Student ID: 200491169
  ****************************/
 
 #include <iostream> /// library that controls reading from and writing to the standard streams.
 #include <vector> /// library called vectors are sequence containers representing arrays that can change in size.
 #include <iomanip> /// library which helps us in manipulating the output of the program.
-#include "grades_section1.h" /// user-defined header @file which contains all function prototypes.
+#include "grades_section1.h" /// user-defined header @file grades_section1.h to propagate declarations to code file.
 
 /**
  * 'namespace' is used to organise the names of program entities.
@@ -18,39 +18,39 @@
 using namespace std;
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function to get the name of input file,
- *          so the file name can be changed in future without letting the client know.
- *         It takes no Parameters.
- *         Return type: @string
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Inline Function to get the name of input file,
+ *        so the file name can be changed in future without letting the client know.
+ *         @param [in] void
+ *         @return [out] string
  * */
 inline string getFileInputName(){
     return "grades.txt";
 }
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function to get the name of output file,
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Inline Function to get the name of output file,
  *          so the file name can be changed in future without letting the client know.
- *         It takes no Parameters.
- *         Return type: @string
+ *         @param [in] void
+ *         @return [out] string
  * */
 inline string getFileOutputName(){
     return "output_Grades.txt";
 }
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to read the contents of a file line by line and
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function to read the contents of a file line by line and
  *          storing the string lines to a string vector.
- *          Parameter: @vector<string> by reference
- *          Return type: void
+ *          @param [in] fileContent
+ *          @return [out] void
  * */
 void readContentFromFile(vector<string> &fileContent) {
     /**
@@ -85,13 +85,13 @@ void readContentFromFile(vector<string> &fileContent) {
 }
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to print data to the console and write data in a formatted fashion
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function to print data to the console and write data in a formatted fashion
  *          to an output file after calculating the average score and grades.
- *          Parameter: @vector<string> by reference
- *          Return type: void
+ *          @param [in] fileContent
+ *          @return [out] void
  * */
 void extractDataAndWriteToFile(const vector<string> &fileContent) {
 
@@ -192,12 +192,12 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
 }
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to calculate average marks and grades.
- *          Parameter: @Student by reference, @istringstream by reference
- *          Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function to calculate average marks and grades.
+ *          @param [in] student @param [in] streamParser
+ *          @return [out] void
  * */
 void calculateAverageAndGradesOfStudents(Student &student, istringstream &streamParser) {
     int sumOfSubjectMarks = 0; /// initializing with 0 to avoid garbage value.
@@ -223,12 +223,12 @@ void calculateAverageAndGradesOfStudents(Student &student, istringstream &stream
 
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to calculate average marks and grades.
- *          Parameter: @Student by reference
- *          Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function to calculate average marks and grades.
+ *          @param [in] student
+ *          @return [out] void
  * */
 void printDataOnConsole(Student &student) {
     /**
@@ -243,12 +243,12 @@ void printDataOnConsole(Student &student) {
 
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to calculate average marks and grades.
- *          No Parameter
- *          Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function to calculate average marks and grades.
+ *          @param [in] void
+ *          @return [out] void
  * */
 void printTableHeaderToConsole() {
 
@@ -267,12 +267,12 @@ void printTableHeaderToConsole() {
 
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function to calculate average marks and grades.
- *          No Parameter
- *          Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Inline Function to calculate average marks and grades.
+ *          @param [in] void
+ *          @return [out] void
  * */
 inline void printHorizontalDivider() {
     /// printing horizontal line using underscore '_' on console.
@@ -281,12 +281,12 @@ inline void printHorizontalDivider() {
 
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to write the processed data to output file in a well formatted fashion.
- *          Parameter: @struct by reference, @ofstream by reference
- *          Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function to write the processed data to output file in a well formatted fashion.
+ *          @param [in] student @param [in] outputStream
+ *          @return [out] void
  * */
 void writeDataToFile(Student &student, ofstream &outputStream) {
     /**
@@ -301,12 +301,12 @@ void writeDataToFile(Student &student, ofstream &outputStream) {
 }
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to write table header to an output file in a well formatted fashion.
- *         Parameter: @ofstream by reference (stream operations to store data to a file).
- *         Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function to write table header to an output file in a well formatted fashion.
+ *         @param [in] outputStream
+ *         @return [out] void
  * */
 void writeTableHeaderToFile(ofstream &outputStream) {
     /**
@@ -332,12 +332,12 @@ void writeTableHeaderToFile(ofstream &outputStream) {
 }
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function to write a horizontal dashed line to an output file.
- *         Parameter: @ofstream by reference (stream operations to store data to a file).
- *         Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Inline Function to write a horizontal dashed line to an output file.
+ *         @param [in] outputStream
+ *         @return [out] void
  * */
 inline void insertHorizontalDivider(ofstream &outputStream) {
     /// writing horizontal line using underscore '_' to output file using @outputStream.
@@ -345,12 +345,12 @@ inline void insertHorizontalDivider(ofstream &outputStream) {
 }
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function to calculate the average scores of students.
- *          Parameters: @float by value, @float by value
- *          Return type: @float
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Inline Function to calculate the average scores of students.
+ *          @param [in] totalMarks @param [in] numberOfSubjects
+ *          @return [out] float
  * */
 inline float calculateMarksAverage(float totalMarks, float numberOfSubjects) {
     /// returns the average calculated as a float.
@@ -358,12 +358,12 @@ inline float calculateMarksAverage(float totalMarks, float numberOfSubjects) {
 }
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to calculate grades of students.
- *          Parameter: @float by reference
- *          Return type: @string
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function to calculate grades of students.
+ *          @param [in] marks
+ *          @return [out] string
  * */
 string calculateGrade(float &marks) {
 

@@ -1,15 +1,15 @@
 /*****************************
- * Module Names: Calculating Average subject score and grades for every subject of every student.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: CS-700 Assignment 1
+ * @name Module Name: Calculating Average subject score and grades for every subject of every student.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 28th September, 2022
+ * @details Purpose: CS-700 Assignment 1
  * Student ID: 200491169
  ****************************/
 
 #include <iostream> /// library that controls reading from and writing to the standard streams.
 #include <fstream> /// library that implements high-level input/output operations on file based streams.
 #include <vector> /// library called vectors are sequence containers representing arrays that can change in size.
-#include "grades_section2.h" /// user-defined header @file which contains all function prototypes.
+#include "grades_section2.h" /// user-defined header @file grades_section2.h to propagate declarations to code file.
 
 /**
  * 'namespace' is used to organise the names of program entities.
@@ -18,48 +18,48 @@
 using namespace std;
 
 /**
- * Module Names: Calculating Average subject score and grades for every subject of every student.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function to get the name of input file.
- *         No Parameters.
- *         Return type: @string
+ * @name Module Name: Calculating Average subject score and grades for every subject of every student.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 28th September, 2022
+ * @details Purpose: Inline Function to get the name of input file.
+ *         @param [in] void
+ *         @return [out] string
  * */
 inline string getSecondFileInputName() {
     return "grades_Section2.txt";
 }
 
 /**
- * Module Names: Calculating Average subject score and grades for every subject of every student.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function to get the name of output file.
- *         No Parameters.
- *         Return type: @string
+ * @name Module Name: Calculating Average subject score and grades for every subject of every student.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 28th September, 2022
+ * @details Purpose: Inline Function to get the name of output file.
+ *         @param [in] void
+ *         @return [out] string
  * */
 inline string getSecondFileOutputName() {
     return "output_Grades_Section2.txt";
 }
 
 /**
- * Module Names: Calculating Average subject score and grades for every subject of every student.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to write the processed data to an output file in a well formatted fashion.
- *          Parameter: @StudentDataCollection by reference
- *          Return type: void
+ * @name Module Name: Calculating Average subject score and grades for every subject of every student.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 28th September, 2022
+ * @details Purpose: Function to write the processed data to an output file in a well formatted fashion.
+ *          @param [in] student
+ *          @return [out] void
  * */
 void writeStudentTableToFile(StudentDataCollection &student) {
 
     /**
      * creating an object of output file stream to perform write operations.
-     * passed @getFileOutputName function as a @string argument which returns the file name.
+     * passed @arg @getSecondFileOutputName function as a @string argument which returns the file name.
      * */
     ofstream outputStream(getSecondFileOutputName());
 
     /**
      * calling this function to write the header of the table to an output file.
-     * takes @numberOfSubjects and @outputStream as arguments.
+     * takes @arg @numberOfSubjects and @outputStream as arguments.
      * */
     writeTableHeaderToSecondFile(student.numberOfSubjects, outputStream);
 
@@ -72,7 +72,7 @@ void writeStudentTableToFile(StudentDataCollection &student) {
         * using @setw to have a well-formatted output with spacing of the specified width.
         * writing the output to an output file using @outputStream
         * */
-        outputStream << left << setw(26) << student.studentNamesArr[i];
+        outputStream << left << setw(2) << "| " << setw(24) << student.studentNamesArr[i];
 
         /// this loops will run until j is equal to length of @numberOfSubjects
         for (int j = 0; j < student.numberOfSubjects; j++) {
@@ -104,12 +104,12 @@ void writeStudentTableToFile(StudentDataCollection &student) {
 }
 
 /**
- * Module Names: Calculating Average subject score and grades for every subject of every student.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to write table header to an output file.
- *         Parameter: @int by reference, @ofstream by reference (stream operations to store data to a file).
- *         Return type: void
+ * @name Module Name: Calculating Average subject score and grades for every subject of every student.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 28th September, 2022
+ * @details Purpose: Function to write table header to an output file.
+ *         @param [in] numberOfSubjects @param [in] outputStream
+ *         @return [out] void
  * */
 void writeTableHeaderToSecondFile(int &numberOfSubjects, ofstream &outputStream) {
 
@@ -152,12 +152,12 @@ void writeTableHeaderToSecondFile(int &numberOfSubjects, ofstream &outputStream)
 }
 
 /**
- * Module Names: Calculating Average subject score and grades for every subject of every student.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function to write a horizontal divider line to an output file.
- *         Parameters: @ofstream by reference (stream operations to store data to a file).
- *         Return type: void
+ * @name Module Name: Calculating Average subject score and grades for every subject of every student.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 28th September, 2022
+ * @details Purpose: Inline Function to write a horizontal divider line to an output file.
+ *         @param [in] outputStream
+ *         @return [out] void
  * */
 inline void insertHorizontalDividerLine(ofstream &outputStream) {
     /// writing horizontal line using underscore '_' to output file using @outputStream.
@@ -168,12 +168,12 @@ inline void insertHorizontalDividerLine(ofstream &outputStream) {
 }
 
 /**
- * Module Names: Calculating Average subject score and grades for every subject of every student.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to calculate grade for each subject score of every student.
- *          Parameter: @StudentDataCollection by reference
- *          Return type: void
+ * @name Module Name: Calculating Average subject score and grades for every subject of every student.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 28th September, 2022
+ * @details Purpose: Function to calculate grade for each subject score of every student.
+ *          @param [in] student
+ *          @return [out] void
  * */
 void calculateGradeForEachExamScore(StudentDataCollection &student) {
 
@@ -226,12 +226,12 @@ void calculateGradeForEachExamScore(StudentDataCollection &student) {
 }
 
 /**
- * Module Names: Calculating Average subject score and grades for every subject of every student.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to calculate average score for every subject.
- *          Parameter: @StudentDataCollection by reference
- *          Return type: void
+ * @name Module Name: Calculating Average subject score and grades for every subject of every student.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 28th September, 2022
+ * @details Purpose: Function to calculate average score for every subject.
+ *          @param [in] student
+ *          @return [out] void
  * */
 void calculateAverageScoreForEachSubject(StudentDataCollection &student) {
 
@@ -262,12 +262,12 @@ void calculateAverageScoreForEachSubject(StudentDataCollection &student) {
 }
 
 /**
- * Module Names: Calculating Average subject score and grades for every subject of every student.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to first line from an input file.
- *          Parameter: @StudentDataCollection by reference
- *          Return type: void
+ * @name Module Name: Calculating Average subject score and grades for every subject of every student.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 28th September, 2022
+ * @details Purpose: Function to first line from an input file.
+ *          @param [in] student
+ *          @return [out] void
  * */
 void readFirstLineFromFile(StudentDataCollection &student) {
 
@@ -294,12 +294,12 @@ void readFirstLineFromFile(StudentDataCollection &student) {
 }
 
 /**
- * Module Names: Calculating Average subject score and grades for every subject of every student.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function to read names and exam scores from an input file.
- *          Parameter: @StudentDataCollection by reference
- *          Return type: void
+ * @name Module Name: Calculating Average subject score and grades for every subject of every student.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 28th September, 2022
+ * @details Purpose: Function to read names and exam scores from an input file.
+ *          @param [in] student
+ *          @return [out] void
  * */
 void readNameAndScoresFromFile(StudentDataCollection &student) {
 
@@ -386,7 +386,7 @@ void readNameAndScoresFromFile(StudentDataCollection &student) {
                 streamParser.clear(); /// we will clear the error state flags and re-parse the stream properly.
                 string initial; /// to store the next occurrence of string in the string stream.
                 streamParser >> initial >> student.eachExamScoresArr[iterator][j]; /// parsing the string and integer respectively.
-                student.studentNamesArr[iterator].append(initial); /// appending the last initial into the fullname on name member of @StudentDataCollection struct
+                student.studentNamesArr[iterator].append(" ").append(initial); /// appending the last initial into the fullname on name member of @StudentDataCollection struct
             }
         }
 

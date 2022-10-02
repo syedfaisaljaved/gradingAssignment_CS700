@@ -1,8 +1,8 @@
 /*****************************
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: CS-700 Assignment 1
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: CS-700 Assignment 1
  * Student ID: 200491169
  ****************************/
 
@@ -19,12 +19,17 @@
 #include <vector> /// library called vectors are sequence containers representing arrays that can change in size.
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: To store heterogeneous data members under one grouped data structure.
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: To store heterogeneous data members under one grouped data structure.
  *          Struct is group of heterogeneous data elements grouped together under one name.
  *          The elements are known as members.
+ *          @var string name
+ *          @var string grade
+ *          @var int numberOfSubjects
+ *          @var float averageOfSubjectMarks
+ *          @struct Student
  * */
 struct Student {
     std::string name, grade; /// string variables.
@@ -33,131 +38,131 @@ struct Student {
 };
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function Prototype to extract data from strings and store it an output file.
- *          Parameter: @vector<string> by reference
- *          Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function Prototype to extract data from strings and store it an output file.
+ *          @param [in] std::vector
+ *          @return [out] void
  * */
 void extractDataAndWriteToFile(const std::vector<std::string> &);
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function Prototype for read the contents of a file.
- *          Parameter: @vector<string> by reference
- *          Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function Prototype for read the contents of a file.
+ *          @param [in] std::vector
+ *          @return [out] void
  * */
 void readContentFromFile(std::vector<std::string> &);
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function Prototype to calculate average marks and grades.
- *          Parameters: @Student by reference, @istringstream by reference
- *          Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function Prototype to calculate average marks and grades.
+ *          @param [in] Student @param [in] istringstream
+ *          @return [out] void
  * */
 void calculateAverageAndGradesOfStudents(Student &, std::istringstream &);
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function Prototype to calculate the average scores of students.
- *          Parameters: @float by value, @float by value
- *          Return type: @float
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Inline Function Prototype to calculate the average scores of students.
+ *          @param float @param [in] float
+ *          @return [out] @float
  * */
 inline float calculateMarksAverage(float, float);
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function Prototype to calculate grades of students.
- *          Parameter: @float by reference
- *          Return type: @string
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function Prototype to calculate grades of students.
+ *          @param [in] float
+ *          @returns [out] string
  * */
 std::string calculateGrade(float &);
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function Prototype to calculate the average scores of students.
- *          Parameter: @Student by reference
- *          Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function Prototype to calculate the average scores of students.
+ *          @param [in] Student
+ *          @return [out] void
  * */
 void printDataOnConsole(Student &);
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function Prototype to print a horizontal dashed line.
- *         No Parameters.
- *         Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function Prototype to print a horizontal dashed line.
+ *         @param [in] void
+ *         @return [out] void
  * */
 inline void printHorizontalDivider();
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function Prototype to print table header.
- *         No Parameters.
- *         Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function Prototype to print table header.
+ *         @param [in] void
+ *         @return [out] void
  * */
 void printTableHeaderToConsole();
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function Prototype to write processed data to an output file in a formatted fashion.
- *         Parameters : @Student by reference, @ofstream by reference (stream operations to store data to a file).
- *         Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function Prototype to write processed data to an output file in a formatted fashion.
+ *         @param [in] Student @param [in] ofstream
+ *         @return [out] void
  * */
 void writeDataToFile(Student &, std::ofstream &);
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Function Prototype to write table header to an output file.
- *         Parameter: @ofstream by reference (stream operations to store data to a file).
- *         Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Function Prototype to write table header to an output file.
+ *         @param [in] ofstream
+ *         @return [out] void
  * */
 void writeTableHeaderToFile(std::ofstream &);
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function Prototype to write a horizontal divider line to an output file.
- *         Parameter: @ofstream by reference (stream operations to store data to a file).
- *         Return type: void
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Inline Function Prototype to write a horizontal divider line to an output file.
+ *         @param [in] ofstream
+ *         @return [out] void
  * */
 inline void insertHorizontalDivider(std::ofstream &);
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function Prototype to get the name of input file.
- *         No Parameters.
- *         Return type: @string
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Inline Function Prototype to get the name of input file.
+ *         @param [in] void
+ *         @return [out] string
  * */
 inline std::string getFileInputName();
 
 /**
- * Module Names: Calculating Average score and Grades of Students.
- * Author: Faisal Javed
- * Date of Creation: 25rd September, 2022
- * Purpose: Inline Function Prototype to get the name of output file.
- *         No Parameters.
- *         Return type: @string
+ * @name Module Name: Calculating Average score and Grades of Students.
+ * @author Author: Faisal Javed
+ * @date Date of Creation: 25th September, 2022
+ * @details Purpose: Inline Function Prototype to get the name of output file.
+ *         @param [in] void
+ *         @return [out] string
  * */
 inline std::string getFileOutputName();
