@@ -114,7 +114,7 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
 
     /**
      * calling this function to write the header of the table to an output file.
-     * takes @ofstream as argument.
+     * takes @outputStream as argument.
      * */
     writeTableHeaderToFile(outputStream);
 
@@ -174,7 +174,7 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
 
         /**
          * calling this function to write the data to an output file in a formatted fashion.
-         * takes @Student struct and @ofstream as arguments.
+         * takes @Student struct and @outputStream as arguments.
          * */
         writeDataToFile(student, outputStream);
     }
@@ -183,11 +183,11 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
 
     /**
      * calling this function to write the horizontal divider to an output file.
-     * takes @ofstream as argument.
+     * takes @outputStream as argument.
      * */
     insertHorizontalDivider(outputStream);
 
-    outputStream.close(); /// closing the @ofstream after performing the write operations.
+    outputStream.close(); /// closing the @outputStream after performing the write operations.
 
 }
 
@@ -258,7 +258,7 @@ void printTableHeaderToConsole() {
      * using @left keyword to left-align the data.
      * using @setw to have a well-formatted output with spacing of the specified width.
      * using pipe '|' to separate columns.
-     * printing the output to console using @ofstream
+     * printing the output to console using @outputStream
      * */
     cout << left << setw(27) << "| Student Name" << setw(20) << "| Average Score" << setw(20) << "| Grade |" << endl;
 
@@ -293,7 +293,7 @@ void writeDataToFile(Student &student, ofstream &outputStream) {
      * using @left keyword to left-align the data.
      * using @setw to have a well-formatted output with spacing of the specified width.
      * using pipe '|' to separate columns.
-     * writing the output to an output file using @ofstream
+     * writing the output to an output file using @outputStream
      * */
     outputStream << left << "| " << setw(25) << student.name << setw(5) << setw(2) << "|" << setw(18) << setprecision(5)
                  << student.averageOfSubjectMarks << setw(2) << "|" << setw(6) << student.grade << setw(2) << "|"
@@ -311,7 +311,7 @@ void writeDataToFile(Student &student, ofstream &outputStream) {
 void writeTableHeaderToFile(ofstream &outputStream) {
     /**
      * calling this function to write horizontal divider to output file.
-     * takes @ofstream as argument
+     * takes @outputStream as argument
      * */
     insertHorizontalDivider(outputStream);
 
@@ -319,14 +319,14 @@ void writeTableHeaderToFile(ofstream &outputStream) {
      * using @left keyword to left-align the data.
      * using @setw to have a well-formatted output with spacing of the specified width.
      * using pipe '|' to separate columns.
-     * writing the output to an output file using @ofstream
+     * writing the output to an output file using @outputStream
      * */
     outputStream << left << setw(27) << "| Student Name" << setw(20) << "| Average Score" << setw(20) << "| Grade |"
                  << endl;
 
     /**
      * calling this function to write horizontal divider to output file.
-     * takes @ofstream as argument
+     * takes @outputStream as argument
      * */
     insertHorizontalDivider(outputStream);
 }
@@ -340,7 +340,7 @@ void writeTableHeaderToFile(ofstream &outputStream) {
  *         Return type: void
  * */
 inline void insertHorizontalDivider(ofstream &outputStream) {
-    /// writing horizontal line using underscore '_' to output file using @ofstream.
+    /// writing horizontal line using underscore '_' to output file using @outputStream.
     outputStream << "________________________________________________________" << endl;
 }
 

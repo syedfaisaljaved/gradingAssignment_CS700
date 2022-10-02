@@ -53,13 +53,13 @@ void writeStudentTableToFile(StudentDataCollection &student) {
 
     /**
      * creating an object of output file stream to perform write operations.
-     * takes @getFileOutputName function as an argument which returns the file name.
+     * passed @getFileOutputName function as a @string argument which returns the file name.
      * */
     ofstream outputStream(getSecondFileOutputName());
 
     /**
      * calling this function to write the header of the table to an output file.
-     * takes @numberOfSubjects and @ofstream as arguments.
+     * takes @numberOfSubjects and @outputStream as arguments.
      * */
     writeTableHeaderToSecondFile(student.numberOfSubjects, outputStream);
 
@@ -70,7 +70,7 @@ void writeStudentTableToFile(StudentDataCollection &student) {
         /**
         * using @left keyword to left-align the data.
         * using @setw to have a well-formatted output with spacing of the specified width.
-        * writing the output to an output file using @ofstream
+        * writing the output to an output file using @outputStream
         * */
         outputStream << left << setw(26) << student.studentNamesArr[i];
 
@@ -80,7 +80,7 @@ void writeStudentTableToFile(StudentDataCollection &student) {
              * using @left keyword to left-align the data.
              * using @setw to have a well-formatted output with spacing of the specified width.
              * using pipe '|' to separate columns.
-             * writing the output to an output file using @ofstream
+             * writing the output to an output file using @outputStream
              * */
             outputStream << left << setw(12) << "| " + to_string(student.eachExamScoresArr[i][j]) << setw(2) << "| "
                          << setw(8) << student.gradeForEachExamArr[i][j];
@@ -88,7 +88,7 @@ void writeStudentTableToFile(StudentDataCollection &student) {
 
         /**
          * using pipe '|' to separate columns.
-         * writing the output to an output file using @ofstream
+         * writing the output to an output file using @outputStream
          * using @endl to go to next line.
          * */
         outputStream << "  |" << endl;
@@ -96,11 +96,11 @@ void writeStudentTableToFile(StudentDataCollection &student) {
 
     /**
      * calling this function to write horizontal divider to output file.
-     * takes @ofstream as argument
+     * takes @outputStream as argument
      * */
     insertHorizontalDividerLine(outputStream);
 
-    outputStream.close(); /// closing the @ofstream after performing the write operations.
+    outputStream.close(); /// closing the @outputStream after performing the write operations.
 }
 
 /**
@@ -115,14 +115,14 @@ void writeTableHeaderToSecondFile(int &numberOfSubjects, ofstream &outputStream)
 
     /**
      * calling this function to write horizontal divider to output file.
-     * takes @ofstream as argument
+     * takes @outputStream as argument
      * */
     insertHorizontalDividerLine(outputStream);
 
     /**
      * using @left keyword to left-align the data.
      * using @setw to have a well-formatted output with spacing of the specified width.
-     * writing the output to an output file using @ofstream
+     * writing the output to an output file using @outputStream
      * */
     outputStream << left << setw(25) << "| Student Name";
 
@@ -131,7 +131,7 @@ void writeTableHeaderToSecondFile(int &numberOfSubjects, ofstream &outputStream)
         /**
          * using @left keyword to left-align the data.
          * using @setw to have a well-formatted output with spacing of the specified width.
-         * writing the output to an output file using @ofstream
+         * writing the output to an output file using @outputStream
          * */
         outputStream << left << setw(12) << " | Subject " + to_string(j + 1) << setw(10)
                      << " | Grade " + to_string(j + 1);
@@ -139,14 +139,14 @@ void writeTableHeaderToSecondFile(int &numberOfSubjects, ofstream &outputStream)
 
     /**
      * using pipe '|' to separate columns.
-     * writing the output to an output file using @ofstream
+     * writing the output to an output file using @outputStream
      * using @endl to go to next line.
      * */
     outputStream << " |" << endl;
 
     /**
      * calling this function to write horizontal divider to output file.
-     * takes @ofstream as argument
+     * takes @outputStream as argument
      * */
     insertHorizontalDividerLine(outputStream);
 }
@@ -160,7 +160,7 @@ void writeTableHeaderToSecondFile(int &numberOfSubjects, ofstream &outputStream)
  *         Return type: void
  * */
 inline void insertHorizontalDividerLine(ofstream &outputStream) {
-    /// writing horizontal line using underscore '_' to output file using @ofstream.
+    /// writing horizontal line using underscore '_' to output file using @outputStream.
     /// using @endl to go to next line.
     outputStream
             << "_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"
@@ -273,7 +273,7 @@ void readFirstLineFromFile(StudentDataCollection &student) {
 
     /**
      * creating an object of input file stream to perform read operations.
-     * takes @getSecondFileInputName function as an argument which returns the file name.
+     * takes @getSecondFileInputName function as a @string argument which returns the file name.
      * */
     ifstream fileStream(getSecondFileInputName());
 
@@ -305,7 +305,7 @@ void readNameAndScoresFromFile(StudentDataCollection &student) {
 
     /**
      * creating an object of input file stream to perform read operations.
-     * takes @getSecondFileInputName function as an argument which returns the file name.
+     * takes @getSecondFileInputName function as a @string argument which returns the file name.
      * */
     ifstream fileStream(getSecondFileInputName());
 
