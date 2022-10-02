@@ -1,8 +1,8 @@
 /*****************************
  * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: CS-700 Assignment 1
+ * @author Faisal Javed
+ * @date 25th September, 2022
+ * Purpose: CS-700 Assignment 1
  * Student ID: 200491169
  ****************************/
 
@@ -18,36 +18,38 @@
 using namespace std;
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Inline Function to get the name of input file,
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Inline Function to get the name of input file,
  *        so the file name can be changed in future without letting the client know.
  *         @param [in] void
  *         @return [out] string
  * */
 inline string getFileInputName(){
+    /// returns the filename.
     return "grades.txt";
 }
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Inline Function to get the name of output file,
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Inline Function to get the name of output file,
  *          so the file name can be changed in future without letting the client know.
  *         @param [in] void
  *         @return [out] string
  * */
 inline string getFileOutputName(){
+    /// returns the filename.
     return "output_Grades.txt";
 }
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Function to read the contents of a file line by line and
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Function to read the contents of a file line by line and
  *          storing the string lines to a string vector.
  *          @param [in] fileContent
  *          @return [out] void
@@ -55,7 +57,7 @@ inline string getFileOutputName(){
 void readContentFromFile(vector<string> &fileContent) {
     /**
      * creating an object of input file stream to perform read operations.
-     * takes @getFileInputName function as an argument which returns the file name.
+     * takes @c getFileInputName() function as an argument which returns the file name.
      * */
     ifstream fileStream(getFileInputName());
 
@@ -63,7 +65,7 @@ void readContentFromFile(vector<string> &fileContent) {
     if (!fileStream.is_open()) {
         /**
          * throw is a keyword to define custom exceptions.
-         * We will throw an exception if the file is unable to open.
+         * We will @throw runtime_error exception if the file is unable to open.
          * */
         throw invalid_argument("Unable to read file.");
     }
@@ -72,7 +74,7 @@ void readContentFromFile(vector<string> &fileContent) {
 
     /**
      * use while loop to traverse through all lines in a file.
-     * takes @getline function as an argument.
+     * takes @c getline() function as an argument.
      * returns false if reached EOF else return true.
      * */
     while (getline(fileStream, line)) {
@@ -85,10 +87,10 @@ void readContentFromFile(vector<string> &fileContent) {
 }
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Function to print data to the console and write data in a formatted fashion
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Function to print data to the console and write data in a formatted fashion
  *          to an output file after calculating the average score and grades.
  *          @param [in] fileContent
  *          @return [out] void
@@ -97,7 +99,7 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
 
     /**
      * creating an object of output file stream to perform write operations.
-     * takes @getFileOutputName function as an argument which returns the file name.
+     * takes @c getFileOutputName() function as an argument which returns the file name.
      * */
     ofstream outputStream(getFileOutputName());
 
@@ -105,7 +107,7 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
     if (!outputStream.is_open()) {
         /**
          * throw is a keyword to define custom exceptions.
-         * We will throw an exception if the file is unable to open.
+         * We will @throw runtime_error exception if the file is unable to open.
          * */
         throw invalid_argument("Unable to open a file to write operations.");
     }
@@ -114,7 +116,7 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
 
     /**
      * calling this function to write the header of the table to an output file.
-     * takes @outputStream as argument.
+     * takes @c outputStream as argument.
      * */
     writeTableHeaderToFile(outputStream);
 
@@ -125,7 +127,7 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
     for (const auto &line: fileContent) {
 
         /**
-         * creating an object of @istringstream class to stream the string into different variables.
+         * creating an object of @c istringstream class to stream the string into different variables.
          * Takes a string as an argument.
          * */
         istringstream streamParser(line);
@@ -134,7 +136,7 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
 
         streamParser >> firstName >> lastName; /// streaming the string to store respective values in the variables.
 
-        student.name = firstName.append(" ").append(lastName); /// using @append to store it as full name in the name member of @Student struct.
+        student.name = firstName.append(" ").append(lastName); /// using @c append() to store it as full name in the name member of @a Student struct.
 
         /**
          * Logic: now we will stream the next value from the stream into an integer.
@@ -157,24 +159,24 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
 
             streamParser >> lastInitial >> student.numberOfSubjects; /// parsing the string and integer respectively.
 
-            student.name.append(" ").append(lastInitial); /// appending the last initial into the fullname on name member of @Student struct
+            student.name.append(" ").append(lastInitial); /// appending the last initial into the fullname on name member of @a Student struct
         }
 
         /**
          * calling this function to calculate the average and grades of students.
-         * takes @Student struct and @istringstream as arguments.
+         * takes @a Student struct and @c istringstream as arguments.
          * */
         calculateAverageAndGradesOfStudents(student, streamParser);
 
         /**
          * calling this function to print the data on console.
-         * takes @Student struct as argument.
+         * takes @a Student struct as argument.
          * */
         printDataOnConsole(student);
 
         /**
          * calling this function to write the data to an output file in a formatted fashion.
-         * takes @Student struct and @outputStream as arguments.
+         * takes @a Student struct and @c outputStream as arguments.
          * */
         writeDataToFile(student, outputStream);
     }
@@ -183,20 +185,20 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
 
     /**
      * calling this function to write the horizontal divider to an output file.
-     * takes @outputStream as argument.
+     * takes @c outputStream as argument.
      * */
     insertHorizontalDivider(outputStream);
 
-    outputStream.close(); /// closing the @outputStream after performing the write operations.
+    outputStream.close(); /// closing the @c outputStream after performing the write operations.
 
 }
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Function to calculate average marks and grades.
- *          @param [in] student @param [in] streamParser
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Function to calculate average marks and grades.
+ *          @param [in] student @fn StudentDataCollection @param [in] streamParser
  *          @return [out] void
  * */
 void calculateAverageAndGradesOfStudents(Student &student, istringstream &streamParser) {
@@ -210,31 +212,31 @@ void calculateAverageAndGradesOfStudents(Student &student, istringstream &stream
     }
 
     /**
-     * calling @calculateMarksAverage to calculate Average score and storing in @Student structs' @averageOfSubjectMarks member variable.
+     * calling @c calculateMarksAverage() to calculate Average score and storing in @a Student structs' @a Student.averageOfSubjectMarks member variable.
      * type casting the integers to float to get the decimal values.
      * */
     student.averageOfSubjectMarks = calculateMarksAverage((float) sumOfSubjectMarks, (float) student.numberOfSubjects);
 
     /**
-     * calling @calculateGrade to calculate Average score and storing in @Student structs' @grade member variable.
+     * calling @c calculateGrade() to calculate Average score and storing in @a Student structs' @a Student.grade member variable.
      * */
     student.grade = calculateGrade(student.averageOfSubjectMarks);
 }
 
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Function to calculate average marks and grades.
- *          @param [in] student
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Function to calculate average marks and grades.
+ *          @param [in] student @fn StudentDataCollection
  *          @return [out] void
  * */
 void printDataOnConsole(Student &student) {
     /**
-     * using @left keyword to left-align the data.
-     * using @setw to have a well-formatted output with spacing of the specified width.
-     * using @setprecision = 5 to set the decimal values upto 5 digits.
+     * using @c left keyword to left-align the data.
+     * using @c setw to have a well-formatted output with spacing of the specified width.
+     * using @c setprecision = 5 to set the decimal values upto 5 digits.
      * using pipe '|' to separate columns.
      * */
     cout << left << "| " << setw(25) << student.name << setw(5) << setw(2) << "|" << setw(18) << setprecision(5)
@@ -243,10 +245,10 @@ void printDataOnConsole(Student &student) {
 
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Function to calculate average marks and grades.
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Function to calculate average marks and grades.
  *          @param [in] void
  *          @return [out] void
  * */
@@ -255,10 +257,10 @@ void printTableHeaderToConsole() {
     printHorizontalDivider(); /// calling this function to print horizontal divider on console.
 
     /**
-     * using @left keyword to left-align the data.
-     * using @setw to have a well-formatted output with spacing of the specified width.
+     * using @c left keyword to left-align the data.
+     * using @c setw to have a well-formatted output with spacing of the specified width.
      * using pipe '|' to separate columns.
-     * printing the output to console using @outputStream
+     * printing the output to console using @c outputStream
      * */
     cout << left << setw(27) << "| Student Name" << setw(20) << "| Average Score" << setw(20) << "| Grade |" << endl;
 
@@ -267,10 +269,10 @@ void printTableHeaderToConsole() {
 
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Inline Function to calculate average marks and grades.
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Inline Function to calculate average marks and grades.
  *          @param [in] void
  *          @return [out] void
  * */
@@ -281,19 +283,19 @@ inline void printHorizontalDivider() {
 
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Function to write the processed data to output file in a well formatted fashion.
- *          @param [in] student @param [in] outputStream
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Function to write the processed data to output file in a well formatted fashion.
+ *          @param [in] student @fn StudentDataCollection @param [in] outputStream
  *          @return [out] void
  * */
 void writeDataToFile(Student &student, ofstream &outputStream) {
     /**
-     * using @left keyword to left-align the data.
-     * using @setw to have a well-formatted output with spacing of the specified width.
+     * using @c left keyword to left-align the data.
+     * using @c setw to have a well-formatted output with spacing of the specified width.
      * using pipe '|' to separate columns.
-     * writing the output to an output file using @outputStream
+     * writing the output to an output file using @c outputStream
      * */
     outputStream << left << "| " << setw(25) << student.name << setw(5) << setw(2) << "|" << setw(18) << setprecision(5)
                  << student.averageOfSubjectMarks << setw(2) << "|" << setw(6) << student.grade << setw(2) << "|"
@@ -301,41 +303,41 @@ void writeDataToFile(Student &student, ofstream &outputStream) {
 }
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Function to write table header to an output file in a well formatted fashion.
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Function to write table header to an output file in a well formatted fashion.
  *         @param [in] outputStream
  *         @return [out] void
  * */
 void writeTableHeaderToFile(ofstream &outputStream) {
     /**
      * calling this function to write horizontal divider to output file.
-     * takes @outputStream as argument
+     * takes @c outputStream as argument
      * */
     insertHorizontalDivider(outputStream);
 
     /**
-     * using @left keyword to left-align the data.
-     * using @setw to have a well-formatted output with spacing of the specified width.
+     * using @c left keyword to left-align the data.
+     * using @c setw to have a well-formatted output with spacing of the specified width.
      * using pipe '|' to separate columns.
-     * writing the output to an output file using @outputStream
+     * writing the output to an output file using @c outputStream
      * */
     outputStream << left << setw(27) << "| Student Name" << setw(20) << "| Average Score" << setw(20) << "| Grade |"
                  << endl;
 
     /**
      * calling this function to write horizontal divider to output file.
-     * takes @outputStream as argument
+     * takes @c outputStream as argument
      * */
     insertHorizontalDivider(outputStream);
 }
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Inline Function to write a horizontal dashed line to an output file.
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Inline Function to write a horizontal dashed line to an output file.
  *         @param [in] outputStream
  *         @return [out] void
  * */
@@ -345,10 +347,10 @@ inline void insertHorizontalDivider(ofstream &outputStream) {
 }
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Inline Function to calculate the average scores of students.
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Inline Function to calculate the average scores of students.
  *          @param [in] totalMarks @param [in] numberOfSubjects
  *          @return [out] float
  * */
@@ -358,15 +360,16 @@ inline float calculateMarksAverage(float totalMarks, float numberOfSubjects) {
 }
 
 /**
- * @name Module Name: Calculating Average score and Grades of Students.
- * @author Author: Faisal Javed
- * @date Date of Creation: 25th September, 2022
- * @details Purpose: Function to calculate grades of students.
+ * Module Name: Calculating Average score and Grades of Students.
+ * Author: Faisal Javed
+ * Date of Creation: 25th September, 2022
+ * Purpose: Function to calculate grades of students.
  *          @param [in] marks
  *          @return [out] string
  * */
 string calculateGrade(float &marks) {
 
+    /// @if
     if (marks > 95 && marks <= 100) {
         /// if the scores are greater than 95 and less than equal to 100, then return grade 'A'
         return "A";
@@ -406,5 +409,5 @@ string calculateGrade(float &marks) {
     } else {
         /// this is unreachable condition, only provided to return a value in all control paths.
         return "";
-    }
+    } /// @endif
 }
