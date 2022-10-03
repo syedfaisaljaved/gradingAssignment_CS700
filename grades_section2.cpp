@@ -1,5 +1,5 @@
 /*****************************
- * Module Name: Calculating Average subject score and grades for every subject of every student.
+ * @name Module Name: Calculating Average subject score and grades for every subject of every student.
  * @author Faisal Javed
  * @date 28th September, 2022
  * Purpose: CS-700 Assignment 1
