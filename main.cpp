@@ -46,6 +46,7 @@ using namespace std;
  *          It has no arguments and returns 0 if the program is executed successfully.
  *          @param [in] void
  *          @return [out] int
+ *          @post Post Condition - int is returned.
  ****************************/
 int main() { /// opening brace - program execution starts here.
 

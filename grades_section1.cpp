@@ -25,6 +25,7 @@ using namespace std;
  *        so the file name can be changed in future without letting the client know.
  *         @param [in] void
  *         @return [out] string
+ *         @post Post Condition - a string is returned
  * */
 inline string getFileInputName(){
     /// returns the filename.
@@ -39,6 +40,7 @@ inline string getFileInputName(){
  *          so the file name can be changed in future without letting the client know.
  *         @param [in] void
  *         @return [out] string
+ *         @post Post Condition - a string is returned
  * */
 inline string getFileOutputName(){
     /// returns the filename.
@@ -53,6 +55,8 @@ inline string getFileOutputName(){
  *          storing the string lines to a string vector.
  *          @param [in] fileContent
  *          @return [out] void
+ *          @pre Pre Condition - a vector of string is passed
+ *          @post Post Condition - data is inserted into vector of string
  * */
 void readContentFromFile(vector<string> &fileContent) {
     /**
@@ -94,6 +98,8 @@ void readContentFromFile(vector<string> &fileContent) {
  *          to an output file after calculating the average score and grades.
  *          @param [in] fileContent
  *          @return [out] void
+ *          @pre Pre Condition - a vector of string is passed
+ *          @post Post Condition - write operations are performed on a file, Student struct member variables are assigned values.
  * */
 void extractDataAndWriteToFile(const vector<string> &fileContent) {
 
@@ -200,6 +206,8 @@ void extractDataAndWriteToFile(const vector<string> &fileContent) {
  * Purpose: Function to calculate average marks and grades.
  *          @param [in] student @fn StudentDataCollection @param [in] streamParser
  *          @return [out] void
+ *          @pre Pre Condition - a Student struct and istringstream parser is passed
+ *          @post Post Condition - float value is assigned to averageOfSubjectMarks and string is assigned to grade variable of Student struct.
  * */
 void calculateAverageAndGradesOfStudents(Student &student, istringstream &streamParser) {
     int sumOfSubjectMarks = 0; /// initializing with 0 to avoid garbage value.
@@ -231,6 +239,8 @@ void calculateAverageAndGradesOfStudents(Student &student, istringstream &stream
  * Purpose: Function to calculate average marks and grades.
  *          @param [in] student @fn StudentDataCollection
  *          @return [out] void
+ *          @pre Pre Condition - a Student struct is passed
+ *          @post Post Condition - data is printed on the console.
  * */
 void printDataOnConsole(Student &student) {
     /**
@@ -251,6 +261,7 @@ void printDataOnConsole(Student &student) {
  * Purpose: Function to calculate average marks and grades.
  *          @param [in] void
  *          @return [out] void
+ *          @post Post Condition - data is printed on the console.
  * */
 void printTableHeaderToConsole() {
 
@@ -275,6 +286,7 @@ void printTableHeaderToConsole() {
  * Purpose: Inline Function to calculate average marks and grades.
  *          @param [in] void
  *          @return [out] void
+ *          @post Post Condition - data is printed on the console.
  * */
 inline void printHorizontalDivider() {
     /// printing horizontal line using underscore '_' on console.
@@ -289,6 +301,8 @@ inline void printHorizontalDivider() {
  * Purpose: Function to write the processed data to output file in a well formatted fashion.
  *          @param [in] student @fn StudentDataCollection @param [in] outputStream
  *          @return [out] void
+ *          @pre Pre Condition - a Student struct and ofstream object is passed
+ *          @post Post Condition - data is written to the file.
  * */
 void writeDataToFile(Student &student, ofstream &outputStream) {
     /**
@@ -309,6 +323,8 @@ void writeDataToFile(Student &student, ofstream &outputStream) {
  * Purpose: Function to write table header to an output file in a well formatted fashion.
  *         @param [in] outputStream
  *         @return [out] void
+ *         @pre Pre Condition - an ofstream object is passed
+ *         @post Post Condition - data is written to the file.
  * */
 void writeTableHeaderToFile(ofstream &outputStream) {
     /**
@@ -340,6 +356,8 @@ void writeTableHeaderToFile(ofstream &outputStream) {
  * Purpose: Inline Function to write a horizontal dashed line to an output file.
  *         @param [in] outputStream
  *         @return [out] void
+ *         @pre Pre Condition - an ofstream object is passed
+ *         @post Post Condition - data is written to the file.
  * */
 inline void insertHorizontalDivider(ofstream &outputStream) {
     /// writing horizontal line using underscore '_' to output file using @outputStream.
@@ -353,6 +371,8 @@ inline void insertHorizontalDivider(ofstream &outputStream) {
  * Purpose: Inline Function to calculate the average scores of students.
  *          @param [in] totalMarks @param [in] numberOfSubjects
  *          @return [out] float
+ *          @pre Pre Condition - two float variables are passed
+ *          @post Post Condition - a float value is returned
  * */
 inline float calculateMarksAverage(float totalMarks, float numberOfSubjects) {
     /// returns the average calculated as a float.
@@ -366,6 +386,8 @@ inline float calculateMarksAverage(float totalMarks, float numberOfSubjects) {
  * Purpose: Function to calculate grades of students.
  *          @param [in] marks
  *          @return [out] string
+ *          @pre Pre Condition - a float variable is passed
+ *          @post Post Condition - a string is returned
  * */
 string calculateGrade(float &marks) {
 

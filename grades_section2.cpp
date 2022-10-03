@@ -24,6 +24,7 @@ using namespace std;
  * Purpose: Inline Function to get the name of input file.
  *         @param [in] void
  *         @return [out] string
+ *         @post a string is returned
  * */
 inline string getSecondFileInputName() {
     /// returns the filename
@@ -37,6 +38,7 @@ inline string getSecondFileInputName() {
  * Purpose: Inline Function to get the name of output file.
  *         @param [in] void
  *         @return [out] string
+ *         @post Post Condition - a string is returned
  * */
 inline string getSecondFileOutputName() {
     /// returns the filename
@@ -48,8 +50,10 @@ inline string getSecondFileOutputName() {
  * Author: Faisal Javed
  * Date of Creation: 28th September, 2022
  * Purpose: Function to write the processed data to an output file in a well formatted fashion.
- *          @param [in] student @fn StudentDataCollection
+ *          @param [in] student
  *          @return [out] void
+ *          @pre Pre Condition - a StudentDataCollection struct is passed
+ *          @post Post Condition - data is written in an output file
  * */
 void writeStudentTableToFile(StudentDataCollection &student) {
 
@@ -112,6 +116,8 @@ void writeStudentTableToFile(StudentDataCollection &student) {
  * Purpose: Function to write table header to an output file.
  *         @param [in] numberOfSubjects @param [in] outputStream
  *         @return [out] void
+ *         @pre Pre Condition - an int and ofstream object is passed
+ *         @post Post Condition - data is written in an output file
  * */
 void writeTableHeaderToSecondFile(int &numberOfSubjects, ofstream &outputStream) {
 
@@ -160,6 +166,8 @@ void writeTableHeaderToSecondFile(int &numberOfSubjects, ofstream &outputStream)
  * Purpose: Inline Function to write a horizontal divider line to an output file.
  *         @param [in] outputStream
  *         @return [out] void
+ *         @pre Pre Condition - an ofstream object is passed
+ *         @post Post Condition - data is written in an output file
  * */
 inline void insertHorizontalDividerLine(ofstream &outputStream) {
     /// writing horizontal line using underscore '_' to output file using @c outputStream.
@@ -174,8 +182,10 @@ inline void insertHorizontalDividerLine(ofstream &outputStream) {
  * Author: Faisal Javed
  * Date of Creation: 28th September, 2022
  * Purpose: Function to calculate grade for each subject score of every student.
- *          @param [in] student @fn StudentDataCollection
+ *          @param [in] student
  *          @return [out] void
+ *          @pre Pre Condition - a StudentDataCollection struct is passed
+ *          @post Post Condition - StudentDataCollection struct 2D char array gradeForEachExamArr get every index value assigned.
  * */
 void calculateGradeForEachExamScore(StudentDataCollection &student) {
 
@@ -235,8 +245,10 @@ void calculateGradeForEachExamScore(StudentDataCollection &student) {
  * Author: Faisal Javed
  * Date of Creation: 28th September, 2022
  * Purpose: Function to calculate average score for every subject.
- *          @param [in] student @fn StudentDataCollection
+ *          @param [in] student
  *          @return [out] void
+ *          @pre Pre Condition - a StudentDataCollection struct is passed
+ *          @post Post Condition - StudentDataCollection struct float array averageScoreForEachExamArr get every index value assigned.
  * */
 void calculateAverageScoreForEachSubject(StudentDataCollection &student) {
 
@@ -271,8 +283,10 @@ void calculateAverageScoreForEachSubject(StudentDataCollection &student) {
  * Author: Faisal Javed
  * Date of Creation: 28th September, 2022
  * Purpose: Function to first line from an input file.
- *          @param [in] student @fn StudentDataCollection
+ *          @param [in] student
  *          @return [out] void
+ *          @pre Pre Condition - a StudentDataCollection struct is passed
+ *          @post Post Condition - integer values are assigned to numberOfStudents and numberOfSubjects of Student.
  * */
 void readFirstLineFromFile(StudentDataCollection &student) {
 
@@ -303,8 +317,10 @@ void readFirstLineFromFile(StudentDataCollection &student) {
  * Author: Faisal Javed
  * Date of Creation: 28th September, 2022
  * Purpose: Function to read names and exam scores from an input file.
- *          @param [in] student @fn StudentDataCollection
+ *          @param [in] student
  *          @return [out] void
+ *          @pre Pre Condition - a StudentDataCollection struct is passed
+ *          @post Post Condition - StudentDataCollection struct 2D int array eachExamScoresArr get every index value assigned.
  * */
 void readNameAndScoresFromFile(StudentDataCollection &student) {
 
